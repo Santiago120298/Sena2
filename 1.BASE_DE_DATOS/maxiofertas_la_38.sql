@@ -1,4 +1,3 @@
-drop database maxiofertas_la_38;
 -- MySQL Workbench Forward Engineering
 
 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0;
@@ -429,20 +428,15 @@ END //
 
 DELIMITER ;
 -- ---------------------------------Vistas---------------------------------------------------------
+-- Productos disponibles
 CREATE VIEW vista_productos_disponibles AS
-SELECT *
-FROM producto
-WHERE disponibilidad > 0;
-
-CREATE VIEW vista_usuarios_activos AS
-SELECT *
-FROM usuarios
-WHERE fecha_nacimiento IS NOT NULL;
-
+SELECT * FROM producto
+WHERE disponibilidad <= 15;
+-- -----------------------
+-- Ofertas
 CREATE VIEW vista_productos_economicos AS
-SELECT *
-FROM producto
-WHERE precio <= 3000;
+SELECT * FROM producto WHERE precio <= 3000;
+-- ------------------------------------------------------------------------------------------------
 
 
 -- -------------------------------UTILIDADES DE LA BASE DE DATOS ----------------------------------------------------------------------
