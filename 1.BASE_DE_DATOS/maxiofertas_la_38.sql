@@ -432,11 +432,11 @@ DELIMITER ;
 CREATE VIEW vista_productos_disponibles AS
 SELECT * FROM producto
 WHERE disponibilidad <= 15;
--- -----------------------
+-- -----------------------------------------
 -- Ofertas
 CREATE VIEW vista_productos_economicos AS
 SELECT * FROM producto WHERE precio <= 3000;
--- ------------------------------------------------------------------------------------------------
+-- ------------------------------------------
 
 
 -- -------------------------------UTILIDADES DE LA BASE DE DATOS ----------------------------------------------------------------------
@@ -455,6 +455,8 @@ DROP FOREIGN KEY fk_carrito_de_compras_usuarios1;
 ALTER TABLE `carrito de compras`
 ADD CONSTRAINT fk_carrito_de_compras_usuarios1 FOREIGN KEY (usuarios_numero_doc)
 REFERENCES usuarios (numero_doc) ON DELETE CASCADE;
+
+select * from vista_productos_disponibles;
 
 
 
